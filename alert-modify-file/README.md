@@ -38,8 +38,12 @@ ausearch -f  /opt/restartos.sh
 or
 cat /var/log/auditd.log 
 ```
+### Step 2: Install and configure ops agent
+```
 sudo apt-cache madison google-cloud-ops-agent 
 apt install google-cloud-ops-agent 
+```
+### Step 3: Configure logging and alert
 
 
 
