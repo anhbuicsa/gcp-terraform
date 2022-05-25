@@ -73,7 +73,8 @@ systemctl restart google-cloud-ops-agent
 systemctl status google-cloud-ops-agent 
 ```
 ## Step 3: Configure logging and alert
-
+#### Go to the Monitoring page
+![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/alert-modify-file/images/alert.png?raw=true "Title")
 
 
 ## Log
