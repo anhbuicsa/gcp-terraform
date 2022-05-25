@@ -1,6 +1,14 @@
 # gcp-tf-temp
 
-The template is used to create GCP resources without using Json key. It enhance the security and reduce the leak of Json key
+Traditionally terraform used json key as the below. Applications and users can authenticate as a service account using generated service account keys. 
+```
+provider "google" {
+ credentials = file("google-service-account.json")
+ project = "playground-project-id"
+ region = "asia-east1”
+}
+```
+It is recommended to use Google Cloud Service Account impersonation in your Terraform code. The folder contains the guide and the template which is used widely in my company as the following:
 
 # Change Terraform configuration
 ### 1. Create GCS bucket and Enable versioning for the bucket
