@@ -12,7 +12,7 @@ It is recommended to use Google Cloud Service Account impersonation in your Terr
 
 # Change Terraform configuration
 ### 1. Create GCS bucket and Enable versioning for the bucket
-### 2. change backend.tf file
+### 2. Copy this folder and change backend.tf file
 The backend.tf file defines the configurations of state file and define the way to access and modify the state file
    - [ ] Change **terraform_state_bucket** to the above bucket name
    - [ ] Change **gcp_manage_state_service_account** to the appropriate google service account which can read, write or delete the state object in GCS. Ensure that you or terraform runner has the token creator permission on gcp_manage_state_service_account. 
