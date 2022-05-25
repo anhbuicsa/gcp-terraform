@@ -1,6 +1,6 @@
-# gcp-tf-temp
+# Audit and notify when an user modify the important files
+Tracking File Server configuration changes is important as these changes can lead to critical services outage
 
-Traditionally terraform used json key as the below. Applications and users can authenticate as a service account using generated service account keys. 
 ![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/alert-modify-file/hacker.png?raw=true "Title")
 apt-get install auditd
 service auditd restart
