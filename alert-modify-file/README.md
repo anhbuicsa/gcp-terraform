@@ -35,8 +35,19 @@ systemctl restart auditd
 #### Test log by modifying file /opt/tinyrestart.sh 
 ```
 ausearch -f  /opt/restartos.sh 
+time->Wed May 25 09:57:11 2022
+type=PROCTITLE msg=audit(1653472631.130:7129): proctitle=7669002F6F70742F726573746172746F732E7368
+type=PATH msg=audit(1653472631.130:7129): item=0 name="/opt/restartos.sh" inode=423496 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL
+type=CWD msg=audit(1653472631.130:7129): cwd="/root"
+type=SYSCALL msg=audit(1653472631.130:7129): arch=c000003e syscall=188 success=yes exit=0 a0=564693b8ec30 a1=7f3d04c4ee7f a2=564693db78b0 a3=1c items=1 ppid=3196 pid=6262 auid=1137899144 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=pts12 ses=1057 comm="vi" exe="/usr/bin/vim.basic" key="identity_bastion"
+root@bastion:~# id 1137899144
+uid=1137899144(v_anhbv2_playground_net) gid=1137899144(v_anhbv2_playground_net) groups=1137899144(v_anhbv2_playground_net)
+
+The v_anhbv2_playground_net has modify the file yet.
 or
 cat /var/log/auditd.log 
+
+
 ```
 ## Step 2: Install and configure ops agent
 ```
@@ -57,9 +68,14 @@ logging:
         receivers: [auditd]
 ```
 #### Restart ops agent to take effect
+```
 systemctl restart google-cloud-ops-agent 
 systemctl status google-cloud-ops-agent 
+```
 ## Step 3: Configure logging and alert
 
-apt install google-cloud-ops-agent
 
+
+## Log
+
+### Output:
