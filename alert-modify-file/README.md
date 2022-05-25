@@ -3,11 +3,11 @@ Tracking File Server configuration changes is important as these changes can lea
 
 ![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/alert-modify-file/images/hacker.png?raw=true "Title")
 
-### Step 1: Install and configure auditd
+## Step 1: Install and configure auditd
 ```
 apt-get install auditd 
 ```
-#### Set the log file for auditd by modify file /etc/audit/auditd.conf 
+#### Set the log file for auditd by modifying file /etc/audit/auditd.conf 
 ```
 log_file = /var/log/auditd.log 
 ```
@@ -27,32 +27,39 @@ log_file = /var/log/auditd.log
 -w /opt/tinyrestart.sh -p wa -k identity_bastion
 -w /opt/users.sh -p wa -k identity_bastion
 ```
-### Restart auditd by running:
+#### Restart auditd by running:
 ```
-service auditd restart 
 systemctl is-enabled auditd
+systemctl restart auditd  
 ```
-### Test log by modify file /opt/tinyrestart.sh 
+#### Test log by modifying file /opt/tinyrestart.sh 
 ```
 ausearch -f  /opt/restartos.sh 
 or
 cat /var/log/auditd.log 
 ```
-### Step 2: Install and configure ops agent
+## Step 2: Install and configure ops agent
 ```
 sudo apt-cache madison google-cloud-ops-agent 
 apt install google-cloud-ops-agent 
 ```
-### Step 3: Configure logging and alert
-
-
-
-
-
-
-
-service auditd restart
-
+#### Configure the ops agent to forward the log file to stackdriver logging by modifying file /etc/google-cloud-ops-agent/config.yaml
+```
+logging:
+  receivers:
+    auditd:
+      type: files
+      include_paths:
+      - /var/log/auditd.log
+  service:
+    pipelines:
+      default_pipeline:
+        receivers: [auditd]
+```
+#### Restart ops agent to take effect
+systemctl restart google-cloud-ops-agent 
+systemctl status google-cloud-ops-agent 
+## Step 3: Configure logging and alert
 
 apt install google-cloud-ops-agent
 
