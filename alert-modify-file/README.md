@@ -23,11 +23,13 @@ log_file = /var/log/auditd.log
 -w /opt/tinyrestart.sh -p wa -k identity_bastion
 -w /opt/users.sh -p wa -k identity_bastion
 ```
+### Restart auditd by running:
 service auditd restart 
-
-systemctl is-enabled auditd 
+systemctl is-enabled auditd
+### Test log by modify file /opt/tinyrestart.sh 
 ausearch -f  /opt/restartos.sh 
-
+or
+cat /var/log/auditd.log 
 sudo apt-cache madison google-cloud-ops-agent 
 apt install google-cloud-ops-agent 
 
