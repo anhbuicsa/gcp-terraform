@@ -4,17 +4,17 @@ Tracking File Server configuration changes is important as these changes can lea
 ![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/alert-modify-file/hacker.png?raw=true "Title")
 
 ### Step 1: Install and configure auditd
-apt-get install auditd ___
-/etc/audit/auditd.conf
-log_file = /var/log/auditd.log
+apt-get install auditd 
+/etc/audit/auditd.conf 
+log_file = /var/log/auditd.log 
 
-service auditd restart
+service auditd restart 
 
-systemctl is-enabled auditd
-ausearch -f  /opt/restartos.sh
+systemctl is-enabled auditd 
+ausearch -f  /opt/restartos.sh 
 
-sudo apt-cache madison google-cloud-ops-agent
-apt install google-cloud-ops-agent
+sudo apt-cache madison google-cloud-ops-agent 
+apt install google-cloud-ops-agent 
 
 
 
