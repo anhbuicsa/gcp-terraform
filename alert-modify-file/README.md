@@ -1,7 +1,7 @@
 # gcp-tf-temp
 
 Traditionally terraform used json key as the below. Applications and users can authenticate as a service account using generated service account keys. 
-![Alt text](alert-modify-file/images.png?raw=true "Title")
+![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/alert-modify-file/hacker.png?raw=true "Title")
 apt-get install auditd
 service auditd restart
 
