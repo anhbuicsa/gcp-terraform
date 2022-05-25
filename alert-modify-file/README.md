@@ -82,6 +82,9 @@ systemctl status google-cloud-ops-agent
 ![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/alert-modify-file/images/alert2.png?raw=true "Title")
 #### 3.4 Insert notification channel ee.g: email, slack channel
 ![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/alert-modify-file/images/alert3.png?raw=true "Title")
-## Log
+## Step 4: Check log or Incident Alert
+### Alert
+![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/alert-modify-file/images/mail-alert.png?raw=true "Title")
+### Log
 
-### Output:
+![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/alert-modify-file/images/log.png?raw=true "Title")
