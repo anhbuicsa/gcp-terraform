@@ -5,6 +5,7 @@ Tracking File Server configuration changes is important as these changes can lea
 
 ### Step 1: Install and configure auditd
 apt-get install auditd 
+#### Set the log file for auditd
 /etc/audit/auditd.conf 
 log_file = /var/log/auditd.log 
 
