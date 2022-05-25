@@ -4,7 +4,7 @@ Tracking File Server configuration changes is important as these changes can lea
 ![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/alert-modify-file/hacker.png?raw=true "Title")
 
 ### Step 1: Install and configure auditd
-apt-get install auditd
+apt-get install auditd ___
 /etc/audit/auditd.conf
 log_file = /var/log/auditd.log
 
