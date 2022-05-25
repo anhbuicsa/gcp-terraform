@@ -1,0 +1,10 @@
+logging:
+  receivers:
+    auditd:
+      type: files
+      include_paths:
+      - /var/log/auditd.log
+  service:
+    pipelines:
+      default_pipeline:
+        receivers: [auditd]
