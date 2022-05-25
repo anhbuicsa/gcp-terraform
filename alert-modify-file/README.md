@@ -73,10 +73,15 @@ systemctl restart google-cloud-ops-agent
 systemctl status google-cloud-ops-agent 
 ```
 ## Step 3: Configure logging and alert
-#### Go to the Monitoring page
+#### Go to the Monitoring page and click CREATE POLICY button
+
 ![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/alert-modify-file/images/alert.png?raw=true "Title")
-
-
+#### Insert information
+![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/alert-modify-file/images/alert1.png?raw=true "Title")
+#### Insert search key word for searching log
+![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/alert-modify-file/images/alert2.png?raw=true "Title")
+#### Insert notification channel ee.g: email, slack channel
+![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/alert-modify-file/images/alert3.png?raw=true "Title")
 ## Log
 
 ### Output:
