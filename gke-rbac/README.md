@@ -8,7 +8,7 @@ You can see:
   - Developers group has pod reader role in all the namespaces
   - Auditors group has reader role in all the namespaces
 
-
+# 1. Setup and configuration
 ### Set up your Groups
   - Create a group in your domain named gke-security-groups@YourDomain
   - Add Administrators, Developers and Auditors groups as members of gke-security-groups@YourDomain
@@ -57,6 +57,30 @@ EOF
 ```
 ### Note:
 You also run the script in src directory
+# 2. Test access
+## Step 1: Create a new user or use an existed user
+## Administrators group
+- add the user in step 1 as member of Administrators group
+- Create a new pod --> OK
+- Read a pod --> OK
+- Read a secret -->OK
+- Remove the user from the group
+
+## Developers group
+- add the user in step 1 as member of Developers group
+- Create a new pod --> Don't allow
+- Read a pod --> OK
+- Read a secret --> Don't allow
+- Remove the user from the group
+
+## Auditors group
+- add the user in step 1 as member of Auditors group
+- Create a new pod --> Don't allow
+- Read a pod --> OK
+- Read a secret --> OK
+- Remove the user from the group
+
+
 
 
 
