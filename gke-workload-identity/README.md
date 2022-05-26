@@ -1,8 +1,10 @@
-# GKE RBAC
+# GKE Workload Identity
 
 Workload Identity allows workloads in your GKE clusters to impersonate Identity and Access Management (IAM) service accounts to access Google Cloud services. Workload Identity is enabled by default on Autopilot clusters. Workload Identity is used inside the GCP cloud environment when interact with GCP resource without providing service account key file. Each Workload can use a different the role as well as the Google service account as the below image:
 ![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/gke-workload-identity/images/workload-identity.png?raw=true "Title")
 
+### Benefit of Workload Identity
+![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/gke-workload-identity/images/benefit-wi.png?raw=true "Title")
 ### Enable Workload Identity
 You can enable Workload Identity on clusters and node pools using the Google Cloud CLI or the Google Cloud console. Workload Identity must be enabled at the cluster level before you can enable Workload Identity on node pools.
 To enable Workload Identity on an existing cluster, do the following:
@@ -11,10 +13,11 @@ To enable Workload Identity on an existing cluster, do the following:
   - On the cluster details page, in the Security section, click edit Edit Workload Identity.
   - In the Edit Workload Identity dialog, select the Enable Workload Identity checkbox.
   - Click Save changes.
+
 ![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/gke-workload-identity/images/enable-wi.png?raw=true "Title")
 
-# 1. Setup and configuration
-### Set up your Groups
+## 1. Setup and configuration
+### Create Google Service Account, assign appropriate roles by using terraform modules which located in tf-wi-module folder
 ```
 Step 1 Run terrafrom to create gsa and map ksa and gsa
 
@@ -44,7 +47,7 @@ module "wi_istio_cicd_runner" {
 }
 ```
 
-### Step 2 create namspace, create ksa, annotate ksa, gsa
+### Step 2 create ksa, annotate ksa, gsa
 # Create K8s service account (KSA)
 # Annotate the KSA and GSA
 
