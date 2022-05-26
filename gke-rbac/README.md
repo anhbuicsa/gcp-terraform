@@ -25,6 +25,9 @@ You can see:
 
 ### Create appropriate roles for each group: Administrators, Developers and Auditors
 ```
+group="Developers"
+Domain_group="Developers@yourdomain.com"
+Namespace="dev"
 kubectl apply -f - <<EOF
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
