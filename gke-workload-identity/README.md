@@ -19,7 +19,7 @@ To enable Workload Identity on an existing cluster, do the following:
 ## 1. Setup and configuration
 ### Step 1: Create Google Service Account, assign appropriate roles by using terraform modules which located in tf-wi-module folder
 ```
-Step 1 Run terrafrom to create gsa and map ksa and gsa
+#Run terrafrom to create gsa and map ksa and gsa
 
 module "wi_istio_cicd_runner" {
   source         = "git::ssh://git@source-control-domain/cloud-platform/gcp-terraform-modules.git//workload-identities/v0.12-2"
