@@ -12,6 +12,14 @@ You can see:
 ### Set up your Groups
   - Create a group in your domain named gke-security-groups@YourDomain
   - Add Administrators, Developers and Auditors groups as members of gke-security-groups@YourDomain
-# Enable RBAC in GKE
+### Enable RBAC in GKE
+  - Go to the Google Kubernetes Engine page in Cloud console.
+  - Click the name of the cluster that you want to update.
+  - On the Details tab, locate the Security section.
+  - For the Google Groups for RBAC field, click edit Edit Google Groups for RBAC.
+  - Select the Enable Google Groups for RBAC checkbox.
+  - Fill in Security Group with gke-security-groups@YourDomain.
+  - Click Save changes.
 ![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/gke-rbac/images/GKE-RBAC.png?raw=true "Title")
+
 
