@@ -24,7 +24,7 @@ You can see:
 ![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/gke-rbac/images/GKE-RBAC.png?raw=true "Title")
 
 ### Create appropriate roles and rolebindings for each group: Administrators, Developers and Auditors
-### Connect to GKE cluster and check the kubectl run properly:
+#### Connect to GKE cluster and check the kubectl run properly then run
 ```
 group="Developers"
 Domain_group="Developers@yourdomain.com"
@@ -55,7 +55,8 @@ subjects:
   name: $Domain_group
 EOF
 ```
-
+### Note:
+You also run the script in src directory
 
 
 
