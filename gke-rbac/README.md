@@ -23,7 +23,8 @@ You can see:
 
 ![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/gke-rbac/images/GKE-RBAC.png?raw=true "Title")
 
-### Create appropriate roles for each group: Administrators, Developers and Auditors
+### Create appropriate roles and rolebindings for each group: Administrators, Developers and Auditors
+### Connect to GKE cluster and check the kubectl run properly:
 ```
 group="Developers"
 Domain_group="Developers@yourdomain.com"
