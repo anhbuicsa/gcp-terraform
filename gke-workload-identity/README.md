@@ -5,7 +5,7 @@ Workload Identity allows workloads in your GKE clusters to impersonate Identity 
 
 ### Benefit of Workload Identity compares to using service account json key
 ![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/gke-workload-identity/images/benefit-wi.png?raw=true "Title")
-### Enable Workload Identity
+### Require: Enable Workload Identity
 You can enable Workload Identity on clusters and node pools using the Google Cloud CLI or the Google Cloud console. Workload Identity must be enabled at the cluster level before you can enable Workload Identity on node pools.
 To enable Workload Identity on an existing cluster, do the following:
   - Go to the Google Kubernetes Engine page in Cloud console.
@@ -17,7 +17,7 @@ To enable Workload Identity on an existing cluster, do the following:
 ![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/gke-workload-identity/images/enable-wi.png?raw=true "Title")
 
 ## 1. Setup and configuration
-### Create Google Service Account, assign appropriate roles by using terraform modules which located in tf-wi-module folder
+### Step 1: Create Google Service Account, assign appropriate roles by using terraform modules which located in tf-wi-module folder
 ```
 Step 1 Run terrafrom to create gsa and map ksa and gsa
 
@@ -53,12 +53,9 @@ module "wi_istio_cicd_runner" {
 
 ```
 #!/bin/bash
-#./wi_ns.sh jira_ticket namespaces ksa gsa
-
-jira_ticket=$1
-namespace=$2
-ksa=$3
-gsa=$4
+namespace="namespace_name" # change me
+ksa="kube_serviceaccount" # change me
+gsa="google_serviceaccount" # change me
 cred_gkes=`kubectl config current-context | awk -F'_' '{print $2}'`
 echo "create ksa [$ksa]"
 kubectl apply -f - <<EOF
