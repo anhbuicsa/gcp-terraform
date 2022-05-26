@@ -101,4 +101,4 @@ kubectl exec -it workload-identity-test \
 ```
 curl -H "Metadata-Flavor: Google" http://169.254.169.254/computeMetadata/v1/instance/service-accounts/
 ```
-### Note: Ensure that the output contains the Google IAM service account.
+##### Note: Ensure that the output contains the Google IAM service account.
