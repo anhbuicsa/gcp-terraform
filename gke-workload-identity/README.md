@@ -1,7 +1,7 @@
 # GKE RBAC
 
 Workload Identity allows workloads in your GKE clusters to impersonate Identity and Access Management (IAM) service accounts to access Google Cloud services. Workload Identity is enabled by default on Autopilot clusters. Workload Identity is used inside the GCP cloud environment when interact with GCP resource without providing service account key file. Each Workload can use a different the role as well as the Google service account as the below image:
-![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/gke-workload-identity/images/gke-workload-identity.png?raw=true "Title")
+![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/gke-workload-identity/images/workload-identity.png?raw=true "Title")
 
 ### Enable Workload Identity
 You can enable Workload Identity on clusters and node pools using the Google Cloud CLI or the Google Cloud console. Workload Identity must be enabled at the cluster level before you can enable Workload Identity on node pools.
