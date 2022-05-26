@@ -48,8 +48,8 @@ module "wi_istio_cicd_runner" {
 ```
 
 ### Step 2 create ksa, annotate ksa, gsa
-# Create K8s service account (KSA)
-# Annotate the KSA and GSA
+#### Create K8s service account (KSA)
+#### Annotate the KSA and GSA
 
 ```
 #!/bin/bash
