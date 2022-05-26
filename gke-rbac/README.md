@@ -20,6 +20,38 @@ You can see:
   - Select the Enable Google Groups for RBAC checkbox.
   - Fill in Security Group with gke-security-groups@YourDomain.
   - Click Save changes.
+
 ![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/gke-rbac/images/GKE-RBAC.png?raw=true "Title")
+
+### Create appropriate roles for each group: Administrators, Developers and Auditors
+```
+kubectl apply -f - <<EOF
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: role-$group
+  namespace: $Namespace
+rules:
+- apiGroups: ["*"] # "" indicates the core API group
+  resources: ["pod"] # replace pod to * if group is one of Administrators or Auditors group
+  verbs: ["get","list","watch"] # replace the value to * if group is Administrators group
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: rolebinding-$group
+  namespace: $Namespace
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: role-$group
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: Group
+  name: $Domain_group
+EOF
+```
+
+
 
 
