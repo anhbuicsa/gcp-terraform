@@ -6,7 +6,12 @@ This page shows you how to set up Google Groups to work with Kubernetes role-bas
 You can see:
   - Administrators group has Owner in all the namespaces
   - Developers group has pod reader role in all the namespaces
-  - Auditor group has reader role in all the namespaces
+  - Auditors group has reader role in all the namespaces
+
+
+### Set up your Groups
+  - Create a group in your domain named gke-security-groups@YourDomain
+  - Add Administrators, Developers and Auditors groups as members of gke-security-groups@YourDomain
 # Enable RBAC in GKE
 ![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/gke-rbac/images/GKE-RBAC.png?raw=true "Title")
 
