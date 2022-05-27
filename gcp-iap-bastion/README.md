@@ -37,6 +37,16 @@ For more detail, please refer to: https://github.com/terraform-google-modules/te
 
 
 # II. Allow the bastion-host to access to GKE master
+1. Go to the Google Kubernetes Engine page in the Cloud console.
+2. Click the name of the cluster you want to modify.
+3. Under Networking, in the Control plane authorized networks field, click edit Edit control plane authorized networks.
+4. Select the Enable control plane authorized networks checkbox.
+5. Click Add authorized network.
+6. Enter a Name for the network.
+7. For Network, enter a CIDR range that you want to grant access to your cluster control plane.
+8. Click Done. Add additional authorized networks as needed.
+9. Click Save Changes.
+
 ![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/gcp-iap-bastion/images/gke-authorize.png?raw=true "Title")
 
 # III. Testing
