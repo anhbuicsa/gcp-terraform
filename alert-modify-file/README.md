@@ -89,6 +89,6 @@ systemctl status google-cloud-ops-agent
 
 ![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/alert-modify-file/images/log.png?raw=true "Title")
 
-### determine who made a change
+### Determine who made a change
 root@bastion:~# id 1137899144
 uid=1137899144(v_anhbv2_playground_net) gid=1137899144(v_anhbv2_playground_net) groups=1137899144(v_anhbv2_playground_net)
