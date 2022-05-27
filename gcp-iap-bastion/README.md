@@ -9,7 +9,7 @@ IAP TCP forwarding allows you to establish an encrypted tunnel over which you ca
 
 
 
-# I. Provision an internal bastion-host
+# I. Provision an internal bastion-host and install tiny proxy
 
 ## Usage
 
