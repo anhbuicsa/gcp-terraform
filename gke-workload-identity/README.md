@@ -101,6 +101,8 @@ kubectl exec -it workload-identity-test \
 ```
 ### 3. Run the following command inside the Pod:
 ```bash
+curl -H "Metadata-Flavor: Google" http://169.254.169.254/computeMetadata/v1/instance/service-accounts/
+e.g:
 root@anhbv2-test:/user/app# curl -H "Metadata-Flavor: Google" http://169.254.169.254/computeMetadata/v1/instance/service-accounts/
 default/
 wi-cicd-runner@base-platform-np.iam.gserviceaccount.com/
