@@ -4,19 +4,10 @@ This guide explains how you can use Identity-Aware Proxy (IAP) TCP forwarding to
 IAP TCP forwarding allows you to establish an encrypted tunnel over which you can forward SSH, RDP, and other traffic to VM instances. IAP TCP forwarding also provides you fine-grained control over which users are allowed to establish tunnels and which VM instances users are allowed to connect to.
 
 # terraform-google-bastion-host
-Refer: https://github.com/terraform-google-modules/terraform-google-bastion-host/tree/v5.0.0
-This module will generate a bastion host vm compatible with [OS Login](https://cloud.google.com/compute/docs/oslogin/) and [IAP Tunneling](https://cloud.google.com/iap/) that can be used to access internal VMs.
-
-This module will:
-
-- Create a dedicated service account for the bastion host
-- Create a GCE instance to be the bastion host
-- Create a firewall rule to allow TCP:22 SSH access from the IAP to the bastion
-- Necessary IAM bindings to allow IAP and OS Logins from specified members
 
 ## Usage
 
-Basic usage of this module is as follows:
+To reduce time to provision a bastion VM, basic usage of this module is as follows:
 
 ```hcl
 module "iap_bastion" {
@@ -32,3 +23,4 @@ module "iap_bastion" {
   ]
 }
 ```
+For more detail, please refer to: https://github.com/terraform-google-modules/terraform-google-bastion-host/tree/v5.0.0
