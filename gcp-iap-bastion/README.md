@@ -50,3 +50,17 @@ For more detail, please refer to: https://github.com/terraform-google-modules/te
 ![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/gcp-iap-bastion/images/gke-authorize.png?raw=true "Title")
 
 # III. Testing
+
+1. Forward a port from the client machine to the bastion machine. 
+gcloud compute --project app-common-dev ssh --zone asia-east1-c bastion --tunnel-through-iap  --ssh-flag="-A -L 8000:127.0.0.1:8888 -ServerAliveInterval=3600"
+2. Open new terminal and run `export HTTPS_PROXY=http://localhost:8000`
+3. Check where kubectl run properly by running:
+```
+kubectl get pods -n kube-system
+NAME                                                      READY   STATUS      RESTARTS   AGE
+anetd-md4rv                                               1/1     Running     0          19h
+anetd-x47lm                                               1/1     Running     0          21h
+anetd-xpt25                                               1/1     Running     0          14h
+antrea-controller-horizontal-autoscaler-7ddc9d94d-r74tz   1/1     Running     0          8d
+clear-pod-with-status-failed-27560792-88cq2               0/1     Completed   0          78s
+```
