@@ -19,7 +19,7 @@ To enable Workload Identity on an existing cluster, do the following:
 
 ## I. Setup and configuration
 ### Step 1: Create Google Service Account, assign appropriate roles by using terraform modules which located in tf-wi-module folder
-```
+```hcl
 #Run terrafrom to create gsa and map ksa and gsa
 # The terraform module help us to easily create Google IAM service Account, allows the Kubernetes service account to act as the IAM service account (roles/iam.workloadIdentityUser) and assign appropriates roles to the IAM service account.
 
@@ -53,7 +53,7 @@ module "wi_istio_cicd_runner" {
 #### Create K8s service account (KSA)
 #### Annotate the KSA and GSA
 
-```
+```bash
 #!/bin/bash
 namespace="namespace_name" # change me
 ksa="kube_serviceaccount" # change me
@@ -73,7 +73,7 @@ EOF
 ```
 ## II. Testing
 ### 1. Create a Pod that uses the annotated Kubernetes service account 
-```
+```bash
 namespace="namespace_name" # change me
 ksa="kube_serviceaccount" # change me
 kubectl apply -f - <<EOF
@@ -93,14 +93,14 @@ spec:
 EOF
 ```
 ### 2. Login to pod: 
-```
+```bash
 namespace="namespace_name" # change me
 kubectl exec -it workload-identity-test \
   --namespace $namespace \
   -- /bin/bash
 ```
 ### 3. Run the following command inside the Pod:
-```
+```bash
 curl -H "Metadata-Flavor: Google" http://169.254.169.254/computeMetadata/v1/instance/service-accounts/
 ```
 ##### Note: Ensure that the output contains the Google IAM service account.

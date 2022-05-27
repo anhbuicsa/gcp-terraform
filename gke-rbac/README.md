@@ -25,7 +25,7 @@ You can see:
 
 ### Create appropriate roles and rolebindings for each group: Administrators, Developers and Auditors
 #### Connect to GKE cluster and check the kubectl run properly then run
-```
+```yaml
 group="Developers"
 Domain_group="Developers@yourdomain.com"
 Namespace="dev"
