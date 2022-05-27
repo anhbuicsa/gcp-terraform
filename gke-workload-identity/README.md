@@ -21,30 +21,31 @@ To enable Workload Identity on an existing cluster, do the following:
 ```
 #Run terrafrom to create gsa and map ksa and gsa
 # The terraform module help us to easily create Google IAM service Account, allows the Kubernetes service account to act as the IAM service account (roles/iam.workloadIdentityUser) and assign appropriates roles to the IAM service account.
+
 module "wi_istio_cicd_runner" {
-  source         = "git::ssh://git@source-control-domain/cloud-platform/gcp-terraform-modules.git//workload-identities/v0.12-2"
+  source         = "git::ssh://git@source-control-domain/tf-wi-module.git"
   project_id     = var.project_id
   wi_deployments = [
     {
-      #existed_gsa = "bastion-tw"
-      gsa  = "wi-istio-cicd-runner" # Create GCP Service Account (GSA).
+      #existed_gsa = "istio-cicd-runner"
+      gsa  = "wi-istio-cicd-runner" #   Create GCP Service Account (GSA).
       jira = "cloud-5811"
       ksa  = [
         {
           name = "istio-cicd-runner"
-           #name="wi-deployment"
           nss = [
             "istio-prod-gitlab"
           ]
         },
       ]
-      gcp_roles = [
-        "roles/container.developer", # Grant appropriate IAM roles/permissions to the GSA.
+      gcp_roles = [ # Grant appropriate IAM roles/permissions to the GSA.
+        "roles/container.developer",
         "roles/storage.objectCreator",
       ]
     },
   ]
 }
+
 ```
 
 ### Step 2: create ksa, annotate ksa, gsa
