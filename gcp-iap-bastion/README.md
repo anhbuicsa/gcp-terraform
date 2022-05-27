@@ -33,6 +33,6 @@ For more detail, please refer to: https://github.com/terraform-google-modules/te
 
 
 # II. Allow the bastion-host to access to GKE master
-* `roles/compute.osAdminLogin` Grants administrator permissions.
+![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/gcp-iap-bastion/images/gke-authorize.png?raw=true "Title")
 
 # III. Testing
