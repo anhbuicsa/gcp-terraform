@@ -29,6 +29,10 @@ module "iap_bastion" {
   ]
 }
 ```
+#### Install tiny proxy:
+```
+sudo apt install tinyproxy -y
+```
 For more detail, please refer to: https://github.com/terraform-google-modules/terraform-google-bastion-host/tree/v5.0.0
 
 
