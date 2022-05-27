@@ -8,7 +8,7 @@ IAP TCP forwarding allows you to establish an encrypted tunnel over which you ca
 ![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/gcp-iap-bastion/images/bastion.png?raw=true "Title")
 
 
-
+As the above Diagram, the user will forward a port from the client machine to the bastion machine via IAP.
 # I. Provision an internal bastion-host and install tiny proxy
 
 ## Usage
@@ -51,8 +51,10 @@ For more detail, please refer to: https://github.com/terraform-google-modules/te
 
 # III. Testing
 
-1. Forward a port from the client machine to the bastion machine. 
+1. Forward a port 8000 from the client machine to the bastion machine (8888). 
+```bash
 gcloud compute --project app-common-dev ssh --zone asia-east1-c bastion --tunnel-through-iap  --ssh-flag="-A -L 8000:127.0.0.1:8888 -ServerAliveInterval=3600"
+```
 2. Open new terminal and run `export HTTPS_PROXY=http://localhost:8000`
 3. Check where kubectl run properly by running:
 ```
