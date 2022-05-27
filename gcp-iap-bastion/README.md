@@ -28,3 +28,23 @@ module "iap_tunneling" {
   ]
 }
 ```
+Once the firewall rule is created, you can search for the newly created firewall rule with something similar to the following:
+```
+gcloud compute firewall-rules list --project my-project --filter="name=allow-ssh-from-iap-to-tunnel"
+```
+Once the IAM bindings for IAP-secured Tunnel User is created, you can verify them with something similar to the following:
+
+```
+$ curl -H "Authorization: Bearer $(gcloud auth print-access-token)" -X POST \
+https://iap.googleapis.com/v1/projects/my-project/iap_tunnel/zones/us-central1-a/instances/my-instance:getIamPolicy
+{
+  "bindings": [
+    {
+      "role": "roles/iap.tunnelResourceAccessor",
+      "members": [
+        "user:me@example.com"
+      ]
+    }
+  ]
+}
+```
