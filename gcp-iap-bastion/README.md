@@ -2,8 +2,12 @@
 
 This guide explains how you can use Identity-Aware Proxy (IAP) TCP forwarding to enable administrative access to VM instances that do not have external IP addresses or do not permit direct access over the internet.
 IAP TCP forwarding allows you to establish an encrypted tunnel over which you can forward SSH, RDP, and other traffic to VM instances. IAP TCP forwarding also provides you fine-grained control over which users are allowed to establish tunnels and which VM instances users are allowed to connect to.
+* A special case, establishing an SSH connection using gcloud compute ssh wraps the SSH connection inside HTTPS and forwards it to the remote instance without the need of a listening port on local host.
+* TCP forwarding with IAP doesn't require a public, routable IP address assigned to your resource. Instead, it uses internal IPs.
 
 ![Alt text](https://github.com/anhbuicsa/gcp-terraform/blob/master/gcp-iap-bastion/images/bastion.png?raw=true "Title")
+
+
 
 # I. Provision an internal bastion-host
 
